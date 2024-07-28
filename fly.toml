@@ -9,7 +9,7 @@
 [http_service]
     internal_port = 5000
     force_https = false
-    auto_stop_machines = false
+    auto_stop_machines = 'stop'
     auto_start_machines = true
     min_machines_running = 0
     processes = ['app']
@@ -30,3 +30,6 @@
     source = 'data'
     destination = '/src/weights'
     initial_size = '10G'
+
+[experimental.attached.secrets.export]
+    WHISPER_URL = "http://${FLYCAST_URL}/predictions/test"
